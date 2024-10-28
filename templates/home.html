@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Перевірка на високосність</title>
+</head>
+<body>
+    {% block content %}
+    <div class="all_elements">
+        <h1 class="text-primary">Перевірка на високосність</h1>
+        <form method="POST">
+            {{ form.hidden_tag() }}
+            <p>
+                {{ form.year.label }}<br>
+                {{ form.year(size=20) }}<br>
+            </p>
+            <p >{{ form.submit() }}</p>
+        </form>
+    {% endblock %}
+    </div>
+</body>
+</html>

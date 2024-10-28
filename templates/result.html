@@ -1,0 +1,28 @@
+{% extends "home.html" %}
+{% block content %}
+<div class="all_elements">
+    <body>
+        <h1 class="text-primary">Result</h1> 
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <ul>
+                {% for category, message in messages %}
+                    <li class="{{ category }}">{{ message }}</li>
+                {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+        <div class="image-center">
+            {% if is_leap %}
+                <img src="{{ url_for('static', filename='yes.png') }}" alt="Leap Year Image"/>
+                <a href="{{ url_for('home') }}" class="btn btn-success">На головну сторінку</a> <!-- Bootstrap -->
+            {% else %}
+                <img src="{{ url_for('static', filename='no.png') }}" alt="Not Leap Year Image"/>
+                <a href="{{ url_for('home') }}" class="btn btn-danger">На головну сторінку</a> <!-- Bootstrap -->
+            {% endif %}
+        </a>    
+        </div>
+    </body>
+{%endblock%}
+</div>
+</html>
